@@ -8,14 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DataReaderImpl implements DataReader {
-    private Connection connection;
-
-    public DataReaderImpl(Connection connection) {
-        this.connection = connection;
-    }
-
     @Override
-    public void readData() throws SQLException {
+    public void readData(Connection connection) throws SQLException {
         String sqlSelect = "SELECT * FROM employees";
         Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery(sqlSelect);

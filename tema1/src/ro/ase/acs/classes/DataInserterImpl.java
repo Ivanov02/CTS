@@ -8,14 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DataInserterImpl implements DataInserter {
-    private Connection connection;
-
-    public DataInserterImpl(Connection connection) {
-        this.connection = connection;
-    }
-
     @Override
-    public void insertData() throws SQLException {
+    public void insertData(Connection connection) throws SQLException {
         String sqlInsert = "INSERT INTO employees VALUES(1, 'Popescu Ion', 'Bucharest', 4000)";
         Statement statement = connection.createStatement();
         statement.executeUpdate(sqlInsert);

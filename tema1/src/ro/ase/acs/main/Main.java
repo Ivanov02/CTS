@@ -12,19 +12,20 @@ import java.sql.DriverManager;
 
 //pare ok
 public class Main {
+    private static final String  CONEXIUNE = "jdbc:sqlite:database.db";
     public static void main(String[] args) {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:sqlite:database.db");
+            Connection connection = DriverManager.getConnection(CONEXIUNE);
             connection.setAutoCommit(false);
 
-            TableCreator tableCreator = new TableCreatorImpl(connection);
-            tableCreator.createTable();
+            TableCreator tableCreator = new TableCreatorImpl();
+            tableCreator.createTable(connection);
 
-            DataInserter dataInserter = new DataInserterImpl(connection);
-            dataInserter.insertData();
+            DataInserter dataInserter = new DataInserterImpl();
+            dataInserter.insertData(connection);
 
-            DataReader dataReader = new DataReaderImpl(connection);
-            dataReader.readData();
+            DataReader dataReader = new DataReaderImpl();
+            dataReader.readData(connection);
 
             connection.close();
         } catch (Exception e) {

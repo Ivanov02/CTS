@@ -7,14 +7,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class TableCreatorImpl implements TableCreator {
-    private Connection connection;
-
-    public TableCreatorImpl(Connection connection) {
-        this.connection = connection;
-    }
+//    private Connection connection;
+//
+//    public TableCreatorImpl(Connection connection) {
+//        this.connection = connection;
+//    }
 
     @Override
-    public void createTable() throws SQLException {
+    public void createTable(Connection connection) throws SQLException {
         String sqlDrop = "DROP TABLE IF EXISTS employees";
         String sqlCreate = "CREATE TABLE employees(id INTEGER PRIMARY KEY,"
                 + "name TEXT, address TEXT, salary REAL)";
