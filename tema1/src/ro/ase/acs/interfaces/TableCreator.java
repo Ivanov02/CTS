@@ -2,6 +2,6 @@ package ro.ase.acs.interfaces;
 
 import java.sql.SQLException;
 
-public interface TableManager {
+public interface TableCreator {
     void createTable() throws SQLException;
 }
