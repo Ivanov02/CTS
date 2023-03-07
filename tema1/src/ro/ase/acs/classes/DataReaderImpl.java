@@ -9,6 +9,7 @@ import java.sql.Statement;
 
 public class DataReaderImpl implements DataReader {
     private static final String ID = "id: ";
+    private static final String NAME = "name: ";
     private static final String ADDRESS = "address: ";
     private static final String SALARY = "id: ";
 
@@ -19,13 +20,13 @@ public class DataReaderImpl implements DataReader {
         Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery(sqlSelect);
         while(rs.next()) {
-            int id = rs.getInt(ID);
-            System.out.println("id: " + id);
+            int id = rs.getInt("id");
+            System.out.println("id" + id);
             String name = rs.getString(2);
             System.out.println("name: " + name);
-            String address = rs.getString(ADDRESS);
+            String address = rs.getString("address");
             System.out.println("address: " + address);
-            double salary = rs.getDouble(SALARY);
+            double salary = rs.getDouble("salary");
             System.out.println("salary: " + salary);
         }
         rs.close();
