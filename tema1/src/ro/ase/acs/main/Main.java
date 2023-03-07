@@ -9,6 +9,8 @@ import ro.ase.acs.interfaces.TableCreator;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+
+//pare ok
 public class Main {
     public static void main(String[] args) {
         try {
